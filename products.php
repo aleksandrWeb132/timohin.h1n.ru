@@ -21,7 +21,7 @@ if($connect->connect_error) {
     ]));
 }
 
-$products = new CProducts($connect, "Products");
+$products = new CProducts($connect);
 
 
 $connect->close();
