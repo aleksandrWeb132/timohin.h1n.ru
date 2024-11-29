@@ -34,6 +34,23 @@ class Orm {
         return $this->getArray($result);
     }
 
+    /** Обновить все параметры **/
+    public function update($id, $params) {
+        $sql = "UPDATE ".$this->table." SET";
+
+        foreach ($params as $key => $value) {
+            if(gettype($value) === "string") {
+                $value = "'".$value."'";
+            }
+
+            $sql .= " ".$key." = ".$value.",";
+        }
+
+        $sql .= "WHERE ID = ".$id;
+
+        $this->connect->query($sql);
+    }
+
     private function getArray($result) {
         $data = [];
 
