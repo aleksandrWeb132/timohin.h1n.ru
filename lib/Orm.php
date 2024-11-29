@@ -11,6 +11,19 @@ class Orm {
         $this->table = $table;
     }
 
+    /** Получить список всех  **/
+    public function getList($limit = null) {
+        $sql = "SELECT * FROM ".$this->table;
+
+        if($limit !== null && gettype($limit) !== "string") {
+            $sql .= " LIMIT ".$limit;
+        }
+
+        $result = $this->connect->query($sql);
+
+        return $this->getArray($result);
+    }
+
 
     private function getArray($result) {
         $data = [];
