@@ -25,6 +25,15 @@ class Orm {
     }
 
 
+    /** Получить список ID по полю **/
+    public function findId($field, $value) {
+        $sql = "SELECT ID FROM ".$this->table." WHERE ".$field." = ".$value;
+
+        $result = $this->connect->query($sql);
+
+        return $this->getArray($result);
+    }
+
     private function getArray($result) {
         $data = [];
 
