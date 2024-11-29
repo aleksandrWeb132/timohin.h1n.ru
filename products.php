@@ -23,5 +23,11 @@ if($connect->connect_error) {
 
 $products = new CProducts($connect);
 
+$productList = $products->getList(5);
 
 $connect->close();
+
+die(json_encode([
+    "code" => 1,
+    "products" => $productList
+]));
