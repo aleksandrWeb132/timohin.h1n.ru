@@ -38,15 +38,21 @@ class Orm {
     public function update($id, $params) {
         $sql = "UPDATE ".$this->table." SET";
 
+        $lastKey = array_key_last($params);
+
         foreach ($params as $key => $value) {
             if(gettype($value) === "string") {
                 $value = "'".$value."'";
             }
 
-            $sql .= " ".$key." = ".$value.",";
+            if($key !== $lastKey) {
+                $sql .= " ".$key." = ".$value.",";
+            }
+
+            $sql .= " ".$key." = ".$value;
         }
 
-        $sql .= "WHERE ID = ".$id;
+        $sql .= " WHERE ID = ".$id;
 
         $this->connect->query($sql);
     }
