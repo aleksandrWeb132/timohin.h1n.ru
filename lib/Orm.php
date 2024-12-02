@@ -13,7 +13,7 @@ class Orm {
 
     /** Получить список всех  **/
     public function getList($limit = null) {
-        $sql = "SELECT * FROM ".$this->table." ORDER BY DATE_CREATE DESC";
+        $sql = "SELECT * FROM ".$this->table." WHERE PRODUCT_ACTIVE = 1 ORDER BY DATE_CREATE DESC";
 
         if($limit !== null && gettype($limit) !== "string") {
             $sql .= " LIMIT ".$limit;
