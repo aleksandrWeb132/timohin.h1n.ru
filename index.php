@@ -60,9 +60,9 @@ $connect->close();
                                 <div class="body__column price"><?=$value["PRODUCT_PRICE"]?></div>
                                 <div class="body__column article"><?=$value["PRODUCT_ARTICLE"]?></div>
                                 <div class="body__column quantity">
-                                    <button class="quantity__button" type="button">+</button>
+                                    <button class="quantity__button" type="button" onclick="addQuantity(<?=$value["PRODUCT_ID"]?>)">+</button>
                                     <span class="quantity__number"><?=$value["PRODUCT_QUANTITY"]?></span>
-                                    <button class="quantity__button" type="button">-</button>
+                                    <button class="quantity__button" type="button" onclick="removeQuantity(<?=$value["PRODUCT_ID"]?>)">-</button>
                                 </div>
                                 <div class="body__column create"><?=$value["DATE_CREATE"]?></div>
                             </div>
