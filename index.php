@@ -50,6 +50,7 @@ $connect->close();
                     <div class="header__column article">Описание</div>
                     <div class="header__column quantity">Количество</div>
                     <div class="header__column create">Дата создания</div>
+                    <div class="header__column hide">Скрыть</div>
                 </div>
                 <div class="table__body">
                     <div class="body__list">
@@ -65,6 +66,9 @@ $connect->close();
                                     <button class="quantity__button" type="button" onclick="removeQuantity(<?=$value["PRODUCT_ID"]?>)">-</button>
                                 </div>
                                 <div class="body__column create"><?=$value["DATE_CREATE"]?></div>
+                                <div class="body__column hide">
+                                    <button class="hide__button" type="button">Скрыть</button>
+                                </div>
                             </div>
                         <?php endforeach; ?>
                     </div>
