@@ -13,7 +13,7 @@ class Orm {
 
     /** Получить список всех  **/
     public function getList($limit = null) {
-        $sql = "SELECT * FROM ".$this->table;
+        $sql = "SELECT * FROM ".$this->table." ORDER BY DATE_CREATE DESC";
 
         if($limit !== null && gettype($limit) !== "string") {
             $sql .= " LIMIT ".$limit;
