@@ -27,4 +27,16 @@ class CProducts extends Orm {
         ];
     }
 
+    public function hideLine($idProduct) {
+        $idList = $this->findId("PRODUCT_ID", $idProduct);
+
+        $this->update($idList[0]["ID"], [
+            "PRODUCT_ACTIVE" => 0
+        ]);
+
+        return [
+            "code" => 1,
+            "message" => "Количество продуктов изменилось!"
+        ];
+    }
 }
