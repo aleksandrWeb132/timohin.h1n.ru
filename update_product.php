@@ -6,22 +6,28 @@ require_once "./lib/CProducts.php";
 
 use lib\CProducts;
 
-if(!isset($_POST["productId"]) || !isset($_POST["productQuantity"])) {
+// Убедитесь, что заголовок указывает, что вы ожидаете JSON
+header("Content-Type: application/json");
+
+// Получаем данные из тела запроса
+$data = json_decode(file_get_contents("php://input"), true);
+
+if(!isset($data["productId"]) || !isset($data["productQuantity"])) {
     die(json_encode([
         "code" => 404092,
         "message" => "Ошибка, не переданы параметры!"
     ]));
 }
 
-if(!is_numeric($_POST["productId"]) || !is_numeric($_POST["productQuantity"])) {
+if(!is_numeric($data["productId"]) || !is_numeric($data["productQuantity"])) {
     die(json_encode([
         "code" => 404082,
         "message" => "Ошибка, переданные параметры должны быть числом!"
     ]));
 }
 
-$productId = htmlspecialchars($_POST["productId"], ENT_QUOTES, 'UTF-8');
-$productQuantity = htmlspecialchars($_POST["productQuantity"], ENT_QUOTES, 'UTF-8');
+$productId = htmlspecialchars($data["productId"], ENT_QUOTES, 'UTF-8');
+$productQuantity = htmlspecialchars($data["productQuantity"], ENT_QUOTES, 'UTF-8');
 
 $accessBd = getAccessBd();
 
