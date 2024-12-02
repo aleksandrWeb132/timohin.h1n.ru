@@ -51,17 +51,20 @@
 .quantity__number {
     width: 100%;
     padding: 0 10px;
+    text-align: center;
 }
 
 .quantity__button {
     width: 30px;
-    height: 30px;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex: 0 0 30px;
     background-color: #A2A9B1;
     color: #666F78;
+    font-size: 18px;
+    font-weight: bold;
 }
 .quantity__button:hover {
     background-color: #DA2032;
@@ -70,31 +73,31 @@
 
 .id {
     width: 50px;
-    height: 30px;
+    min-height: 30px;
 }
 .name {
     width: 330px;
-    height: 30px;
+    min-height: 30px;
     justify-content: start;
     padding: 0 15px;
 }
 .price {
     width: 170px;
-    height: 30px;
+    min-height: 30px;
 }
 .article {
     width: 330px;
-    height: 30px;
+    min-height: 30px;
     justify-content: start;
     padding: 0 15px;
 }
 .quantity {
     width: 140px;
-    height: 30px;
+    min-height: 30px;
 }
 .create {
     width: 150px;
-    height: 30px;
+    min-height: 30px;
 }
 
 @media (max-width: 1200px) {
