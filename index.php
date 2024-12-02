@@ -67,7 +67,7 @@ $connect->close();
                                 </div>
                                 <div class="body__column create"><?=$value["DATE_CREATE"]?></div>
                                 <div class="body__column hide">
-                                    <button class="hide__button" type="button">Скрыть</button>
+                                    <button class="hide__button" type="button" onclick="hideLine(<?=$value["PRODUCT_ID"]?>)">Скрыть</button>
                                 </div>
                             </div>
                         <?php endforeach; ?>

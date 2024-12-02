@@ -48,3 +48,27 @@ function removeQuantity(id) {
 
     updateQuantity(id, quantity);
 }
+
+function hideLine(id) {
+    const lineElement = document.getElementById(id);
+    lineElement.remove();
+
+    const url = 'http://timohin.h1n.ru/hide_product.php';
+    const data = {
+        productId: id
+    };
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+        .then(response => {
+            if(!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+}
